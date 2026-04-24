@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reset Password – Idea Mesh</title>
+    <link rel="stylesheet" href="forgot.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>IDEA-MESH</h1>
+        <h2>Forgot Password</h2>
+        <div id="verifySection">
+            <input type="email" id="email" placeholder="Enter your email" autofocus>
+            <input type="date" id="dob" placeholder="Enter your date of birth">
+            <button id="verifyBtn">Verify Account</button>
+            <p><a href="1login.html">Back to Login</a></p>
+        </div>
+        <div id="resetSection" style="display: none;">
+            <div class="password-container">
+                <input type="password" id="newPassword" placeholder="Enter new password">
+                <span id="toggleNewPassword" class="toggle-password">👁️</span>
+            </div>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm password">
+                <span id="toggleConfirmPassword" class="toggle-password">👁️</span>
+            </div>
+            <button id="resetBtn">Reset Password</button>
+            <p><a href="1login.html">Back to Login</a></p>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>&copy; 2026 Idea Mesh. All rights reserved. &#128242 8870959394</p>
+</footer>
+<script src="forgot.js"></script>
+</html>

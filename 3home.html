@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home page – Idea Mesh</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+<body>
+<header class="header">
+    <div class="left-group">
+        <div class="logo">💡Idea Mesh</div>
+        <div class="profile-avatar" style="margin-left: 20px;"><div class="avatar-text" title="User Profile">U</div></div>
+    </div>
+    <div class="right-group">
+        <div class="search-area" style="margin-right: 50px;">
+            <input type="search" placeholder="Enter Domain here....." required autofocus>        
+        </div>
+        <div class="btn" style="margin-right: 50px;"><a href="3home.html">🏠Home</a></div>
+        <a href="4posts.html" class="add-post" style="margin-right: 50px;">➕ Add Post</a>
+        <button  id="out" style="margin-right: 50px;"><a href="1login.html">Logout</a></button>
+    </div>
+</header>
+
+<!-- Admin Featured Posts Section -->
+<section class="admin-featured-posts">
+    <div class="admin-posts-container">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #019450;">✨ Featured Admin Posts</h2>
+        <div id="adminPostsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="box" title="Innovative Idea of Software/Web Developements."><a href="#">Coder</a></div>
+    <div class="box" title="New creation of user experience, UI / UX design."><a href="#">Designer</a></div>
+    <div class="box" title="New composition,production & performance of music, different genres, instruments, vocal techniques."><a href="#">Music</a></div>
+    <div class="box" title="Creative expression through various mediums, painting, sculpture, digital art, photography."><a href="#">Art</a></div>
+    <div class="box" title="Talent of collect,clean & interpret datas,powerBI,SQL,Excel,...Insights & data decisions."><a href="#">Data Analyst</a></div>
+    <div class="box" title="Way to bridge gap between Deployment & operations, different way to manage cloud environments CI/CD pipeline."><a href="#">DevOps</a></div>
+    <div class="box" title="Innovative approaches to networking, network architecture, and network security."><a href="#">Networking</a></div>
+    <div class="box" title="Innovative approaches to cybersecurity, ethical hacking, threat intelligence, security architecture."><a href="#">Cyber Tech</a></div>
+    <div class="box" title="Creative researches, builds of prediction & automation. New algorithms, create autonomous systems."><a href="#">AI / ML</a></div>
+    <div class="box" title="Strategies and techniques for promoting products and services through digital channels"><a href="#">Digital marketing</a></div>
+    <div class="box" title="Cloud computing services and solutions,Amazon Web Services"><a href="#">Cloud Tech</a></div>
+    <div class="box" title="Process of evaluating and verifying that a software application functions as intended."><a href="#">Testing</a></div>
+</section>
+<marquee onmouseover="stop()" onmouseout="start()" >In the Idea Mesh platform, various roles are defined to facilitate collaboration and project development. 
+    Each role has specific responsibilities and expertise that contribute to the overall success of a project.</marquee>
+<section class="content"></section>
+<fieldset><section class="contact">
+<h2>Contact Me</h2>
+<form onsubmit="sendMessage(event)">
+<input type="text" placeholder="Your Name" required />
+<input type="email" placeholder="Your Email" required />
+<textarea rows="4" placeholder="Your Message" required></textarea>
+<button id="btn">Send Message</button>
+</form>
+</section></fieldset>
+<script src="sample.js"></script>
+</body>
+<footer class="footer">
+    <p>&copy; 2026 Idea Mesh. All rights reserved. &#128242 8870959394</p>
+</footer>
+</html>

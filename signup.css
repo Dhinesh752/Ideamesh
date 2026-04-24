@@ -1,0 +1,314 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #019450, #74bfe2);
+    background-size: 100% 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+.auth-container {
+    background: rgba(255, 255, 255, 0.18);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 5px;;
+    max-width: 600px;
+    max-height: fit-content;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    animation: slideDown 0.8s ease-out;
+    z-index: 999;
+}
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+h1 {
+    text-shadow: #019450 1px 1px, #019450 -1px -1px, #019450 -1px 1px, #019450 1px -1px;
+    text-align: center;
+    font-size: 37px;
+    font-weight: bolder;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #050505;
+    text-decoration: line-through;
+    text-decoration-color: #56d651;
+    margin:0;
+}
+h2 {
+    text-align: center;
+    color: #fff;
+    margin:0;
+    font-weight: bolder;
+    font-size: 28px;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.input-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    color:black;
+    font-size: 20px;
+    margin: 5px 0;
+}
+.input-box input {
+    width: 90%;
+    padding: 13px 15px;
+    border-radius: 12px;
+    border: 2px#050505;
+    font-size: 15px;
+    transition: 0.4s ease;
+}
+.input-box input:focus {    
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color:black;
+    font-size: 20px;
+    margin:0;
+    box-shadow: 0 0 7px #fff;
+    transform: scale(1.02);
+}
+#togglePassword1 {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#togglePassword2 {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+/* Google Sign-In Styles */
+.google-signin-wrapper {
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+.google-signin-btn {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+}
+.google-signin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #f9f9f9 0%, #efefef 100%);
+}
+
+.google-signin-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 15px 0;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.divider span {
+    margin: 0 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 6px;
+    margin: 9px;
+    border-radius: 12px;
+    font-size: 19px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.btn.ca {
+    border:1px solid #070606;
+    background: #4CAF50;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+}
+.btn.ca:hover {
+    background: #07e012;
+    transform: translateY(-5px);
+}
+h4{
+    color: #221d1d;
+    margin: 0px;
+}
+a:hover{
+    background: #07e012;
+    transform: translateY(-5px);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #34A790, #6ABBD6);
+    color: rgb(17, 1, 32);
+    font-size: 14px;
+    padding: 0;
+}
+/* ======================================
+   MOBILE-FIRST BASE (DEFAULT)
+====================================== */
+
+/* Layout defaults = MOBILE */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* Responsive iframe (best practice) */
+iframe {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+}
+
+/* Buttons */
+.add {
+    margin: 10px auto;
+    display: block;
+}
+
+/* Search */
+.search-area {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Header mobile layout */
+.header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* ======================================
+   TABLET (≥577px)
+====================================== */
+@media (min-width: 577px) {
+
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-area {
+        max-width: 300px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    iframe {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+
+/* ======================================
+   LAPTOP (≥769px)
+====================================== */
+@media (min-width: 769px) {
+
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-area {
+        max-width: 350px;
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+/* ======================================
+   DESKTOP (≥1201px)
+====================================== */
+@media (min-width: 1201px) {
+
+    .container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .content {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .search-area {
+        max-width: 400px;
+    }
+}

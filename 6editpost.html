@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post – Idea Mesh</title>
+    <link rel="stylesheet" href="editpost.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="left-group">
+        <div class="logo">💡Idea Mesh</div>
+        <div class="profile-avatar" style="margin-left: 20px;"><div class="avatar-text" title="User Profile">U</div></div>
+    </div>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="7viewpost.html">⬅ Back</a> </li>
+        <li><a href="3home.html">🏠 Home</a></li>
+        <li><a href="#" id="menu-btn">☰</a></li>
+    </ul>
+</nav>
+<div class="form-section">
+    <form id="editPostForm">
+        <input type="text" id="editTitle" placeholder="Enter title" required autofocus>
+        <select id="editCategory" required>
+            <option value="General">General</option>
+            <option value="Coding">Coder</option>
+            <option value="Designer">UI Designer</option>
+            <option value="Music">Music</option>
+            <option value="Art">Art</option>
+            <option value="Data Analysis">Data Analysis</option>
+            <option value="DevOps">Developmet&Operations</option>
+            <option value="Networking">Networking</option>
+            <option value="Cyber Tech">Cyber Security</option>
+            <option value="AI">AI / ML</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="cloud">Cloud Computing</option>
+            <option value="Testing">Testing</option>
+            <option value="Other">Other</option>
+        </select>
+        <textarea id="editContent" placeholder="Edit content here" required></textarea>
+        <input type="file" id="editDocument" accept=".pdf,.doc,.docx,.txt,.ppt,.pptx" placeholder="Upload document (optional)">
+        <button type="submit">Update Post</button>
+    </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = parseInt(urlParams.get('postId'));
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        const posts = JSON.parse(localStorage.getItem('ideaMeshPosts') || '[]');
+        const post = posts.find(p => p.id === postId);
+        const form = document.getElementById('editPostForm');
+
+        if (!currentUser) {
+            alert('You must be logged in to edit a post.');
+            window.location.href = '1login.html';
+            return;
+        }
+
+        if (!post) {
+            alert('Post not found.');
+            window.location.href = '3home.html';
+            return;
+        }
+
+        if (currentUser.email !== post.authorEmail) {
+            alert('You are not allowed to edit this post.');
+            window.location.href = `7viewpost.html?postId=${postId}`;
+            return;
+        }
+
+        document.getElementById('editTitle').value = post.title;
+        document.getElementById('editCategory').value = post.category;
+        document.getElementById('editContent').value = post.content;
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const updatedTitle = document.getElementById('editTitle').value.trim();
+            const updatedCategory = document.getElementById('editCategory').value;
+            const updatedContent = document.getElementById('editContent').value.trim();
+            const documentFile = document.getElementById('editDocument').files[0];
+
+            if (!updatedTitle || !updatedContent) {
+                alert('Title and content are required.');
+                return;
+            }
+
+            const updatePost = async () => {
+                let documentData = post.documentData; // keep existing if no new file
+                if (documentFile) {
+                    documentData = await fileToBase64(documentFile);
+                }
+
+                const updatedPosts = posts.map(function (existingPost) {
+                    if (existingPost.id === postId) {
+                        return {
+                            ...existingPost,
+                            title: updatedTitle,
+                            category: updatedCategory,
+                            content: updatedContent,
+                            documentData: documentData,
+                            updatedAt: new Date().toISOString()
+                        };
+                    }
+                    return existingPost;
+                });
+
+                localStorage.setItem('ideaMeshPosts', JSON.stringify(updatedPosts));
+                alert('Post updated successfully.');
+                window.location.href = `7viewpost.html?postId=${postId}`;
+            };
+
+            updatePost();
+        });
+
+        // Avatar hover effect
+        const avatar = document.querySelector('.avatar-text');
+        if (avatar) {
+            if (currentUser) {
+                const initial = currentUser.fullName.charAt(0).toUpperCase();
+                avatar.textContent = initial;
+                avatar.addEventListener('mouseover', function() {
+                    this.textContent = currentUser.fullName;
+                });
+                avatar.addEventListener('mouseout', function() {
+                    this.textContent = initial;
+                });
+            } else {
+                // Default if no user
+                avatar.textContent = 'U';
+                avatar.addEventListener('mouseover', function() {
+                    this.textContent = 'User';
+                });
+                avatar.addEventListener('mouseout', function() {
+                    this.textContent = 'U';
+                });
+            }
+        }
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+    });
+</script>
+</body>
+<footer>
+    <p>&copy; 2026 Idea Mesh. All rights reserved. &#128242 8870959394</p>
+    </footer>
+</html>

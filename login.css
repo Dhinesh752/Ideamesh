@@ -1,0 +1,279 @@
+body {
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(135deg, #019450, #74bfe2);
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+.auth-container {
+    background: rgba(255, 255, 255, 0.18);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    max-height: 700px;
+    max-width: 500px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    animation: slideDown 0.8s ease-out;
+    z-index: 999;
+}
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+h1 {
+    text-shadow: #019450 1px 1px, #019450 -1px -1px, #019450 -1px 1px, #019450 1px -1px;
+    text-align: center;
+    margin:auto;
+    padding:5px;
+    font-size: 40px;
+    font-weight: bolder;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #050505;
+    text-decoration: line-through;
+    text-decoration-color: #56d651;
+}
+h2 {
+    text-align: center;
+    margin:auto;
+    padding:6px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 42px;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#x, #y {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:black;
+    font-size: 25px;
+    margin:0;
+}
+input {
+    width:90%;
+    padding: 13px;
+    margin:auto;
+    border: 1px solid #050505;
+    border-width: 2px;
+    border-radius: 12px;
+}
+input:focus {
+    box-shadow: 0 0 7px #fff;
+    transform: scale(1.02);
+}
+#y {
+    position: relative;
+}
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#z{
+    gap: 10px;
+    color:black;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+}
+label input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    padding:5px;
+    border-width: 2px;
+    border-radius: 6px;
+    border: 2px solid #131111;
+    background: white;
+    transition: 0.25s;
+}
+.btn.log {
+    border:1px solid #070606;
+    background: #4CAF50;
+    font-weight: 600;    
+    width: 100%;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 17px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: 0.3s ease;
+}
+.btn.log:hover {
+    background: #07e012;
+    transform: translateY(-5px);
+}
+a:hover{
+    padding: 0px;
+    background: #07e012;
+    transform: translateY(-5px);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #34A790, #6ABBD6);
+    color: rgb(17, 1, 32);
+    font-size: 14px;
+    padding: 0;
+}
+/* ======================================
+   BASE FIXES (VERY IMPORTANT)
+====================================== */
+
+/* Proper centering */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Prevent overflow */
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Remove height restriction (important) */
+.auth-container {
+    max-height: none;
+}
+
+/* Fix input alignment */
+input {
+    width: 100%;
+}
+
+
+/* ======================================
+   MOBILE (≤576px)
+====================================== */
+@media (max-width: 576px) {
+
+    body {
+        align-items: flex-start;
+        padding: 20px 10px 80px;
+    }
+
+    .auth-container {
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 4px;
+    }
+
+    #x, #y {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #togglePassword {
+        right: 8px;
+        font-size: 14px;
+    }
+
+    .btn.log {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+
+/* ======================================
+   TABLET (577px – 768px)
+====================================== */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    .auth-container {
+        max-width: 420px;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    #x, #y {
+        font-size: 18px;
+    }
+
+    .btn.log {
+        font-size: 16px;
+    }
+}
+
+
+/* ======================================
+   LAPTOP (769px – 1200px)
+====================================== */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .auth-container {
+        max-width: 460px;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+}
+
+
+/* ======================================
+   DESKTOP (≥1201px)
+====================================== */
+@media (min-width: 1201px) {
+
+    .auth-container {
+        max-width: 500px;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 42px;
+    }
+}

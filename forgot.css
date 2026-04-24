@@ -1,0 +1,254 @@
+body{
+    background: linear-gradient(135deg, #019450, #74bfe2);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+.auth-container{
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    margin: auto;
+    padding: 40px;
+    max-width: 500px;
+    border-radius: 20px;
+    animation: slideDown 0.8s ease-out;
+    z-index: 999;
+    color: #fff;
+}
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+h1{
+    font-size: 50px;
+    margin-top: 1px;
+    text-decoration: line-through;
+    text-decoration-color: #56d651;
+    color: #333333;
+}
+h2{
+    font-size: 30px;
+    margin: 20px;
+}
+#verifySection input[type="email"],
+#verifySection input[type="date"]{
+    width: 100%;
+    padding-top:15px;
+    padding-bottom: 10px;
+    font-size: larger;
+    margin: 15px 10px;
+    text-align: justify;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    justify-content: center;
+}
+#resetSection {
+    display: none;
+}
+.password-container {
+    position: relative;
+    margin: 15px 10px;
+}
+#resetSection input[type="password"] {
+    width: 100%;
+    padding: 15px 40px 10px 15px;
+    font-size: larger;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+button{
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 30px;
+    font-size:20px;
+    padding: 10px;
+    border: rgb(32, 163, 15);
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #16ca1f;
+    transform:translateY(-5px);
+}
+a:hover{
+    padding: 0px;
+    background: #07e012;
+    transform: translateY(-5px);
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(135deg, #34A790, #6ABBD6);
+    color: rgb(17, 1, 32);
+    font-size: 14px;
+    padding: 0;
+}
+.password-container {
+    position: relative;
+    margin: 15px 10px;
+}
+.password-container input[type="password"] {
+    width: calc(100% - 50px);
+    padding: 15px 40px 10px 15px;
+    font-size: larger;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+/* ======================================
+   BASE FIXES (IMPORTANT)
+====================================== */
+
+/* Prevent overflow on small screens */
+.auth-container {
+    width: 90%;
+}
+
+/* Make headings flexible */
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+
+/* ======================================
+   MOBILE (≤576px)
+====================================== */
+@media (max-width: 576px) {
+
+    body {
+        padding: 20px 10px 80px;
+        align-items: flex-start;
+    }
+
+    .auth-container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+        text-decoration: none;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    #verifySection input,
+    #resetSection input {
+        font-size: 14px;
+        padding: 12px;
+        margin: 10px 0;
+    }
+
+    .password-container input[type="password"] {
+        width: 100%;
+        padding: 12px 35px 10px 12px;
+    }
+
+    .toggle-password {
+        font-size: 16px;
+        right: 8px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+
+/* ======================================
+   TABLET (577px – 768px)
+====================================== */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    body {
+        padding: 40px 20px 90px;
+    }
+
+    .auth-container {
+        max-width: 420px;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+
+
+/* ======================================
+   LAPTOP (769px – 1200px)
+====================================== */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .auth-container {
+        max-width: 480px;
+        padding: 35px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+}
+
+
+/* ======================================
+   DESKTOP (≥1201px)
+====================================== */
+@media (min-width: 1201px) {
+
+    .auth-container {
+        max-width: 500px;
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}

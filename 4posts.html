@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Post – Idea Mesh</title>
+    <link rel="stylesheet" href="post.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="left-group">
+        <div class="logo">💡Idea Mesh</div>
+        <div class="profile-avatar" style="margin-left: 20px;"><div class="avatar-text" title="User Profile">U</div></div>
+    </div>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="3home.html">🏠 Home</a></li>
+    </ul>
+</nav>
+<section class="form-section">
+    <div class="form-container">
+        <form id="postForm">
+            <input type="text" id="title" placeholder="Post Title" autofocus required>
+            <select id="category" required>
+                <option value="General">General</option>
+                <option value="Coding">Coder</option>
+                <option value="Designer">UI Designer</option>
+                <option value="Music">Music</option>
+                <option value="Art">Art</option>
+                <option value="Data Analysis">Data Analysis</option>
+                <option value="DevOps">Developmet&Operations</option>
+                <option value="Networking">Networking</option>
+                <option value="Cyber Tech">Cyber Security</option>
+                <option value="AI">AI / ML</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="Testing">Testing</option>
+                <option value="Other">Other</option>
+            </select>
+            <textarea id="content" placeholder="Write your content..."></textarea>
+            <input type="file" id="Document" accept="image/*">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+<div class="popup">
+    <p>✔ Post Added Successfully!</p>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        if (!currentUser) {
+            alert('Please login before adding a post.');
+            window.location.href = '1login.html';
+            return;
+        }
+
+        const form = document.getElementById('postForm');
+        const imageInput = document.getElementById('Document');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value.trim();
+            const category = document.getElementById('category').value;
+            const content = document.getElementById('content').value.trim();
+            const file = imageInput.files[0];
+            if (!title || (!content && !file)) {
+                alert('Please provide a title and either content or an image.');
+                return;
+            }
+            const savePost = function (imageData) {
+                const storedPosts = JSON.parse(localStorage.getItem('ideaMeshPosts') || '[]');
+                const newPost = {
+                    id: Date.now(),
+                    title: title,
+                    category: category,
+                    content: content,
+                    imageData: imageData || null,
+                    createdAt: new Date().toISOString(),
+                    authorEmail: currentUser.email,
+                    authorName: currentUser.fullName
+                };
+                storedPosts.unshift(newPost);
+                localStorage.setItem('ideaMeshPosts', JSON.stringify(storedPosts));
+                alert('Post added successfully! You will be redirected to Home.');
+                window.location.href = '3home.html';
+            };
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (readerEvent) {
+                    savePost(readerEvent.target.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                savePost(null);
+            }
+        });
+
+        // Avatar hover effect
+        const avatar = document.querySelector('.avatar-text');
+        if (avatar) {
+            if (currentUser) {
+                const initial = currentUser.fullName.charAt(0).toUpperCase();
+                avatar.textContent = initial;
+                avatar.addEventListener('mouseover', function() {
+                    this.textContent = currentUser.fullName;
+                });
+                avatar.addEventListener('mouseout', function() {
+                    this.textContent = initial;
+                });
+            } else {
+                // Default if no user
+                avatar.textContent = 'U';
+                avatar.addEventListener('mouseover', function() {
+                    this.textContent = 'User';
+                });
+                avatar.addEventListener('mouseout', function() {
+                    this.textContent = 'U';
+                });
+            }
+        }
+    });
+</script>
+</body>
+<footer>
+    <p>&copy; 2026 Idea Mesh. All rights reserved. &#128242 8870959394</p>
+    </footer>
+</html>

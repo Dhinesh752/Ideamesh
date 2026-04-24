@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts – Idea Mesh</title>
+    <link rel="stylesheet" href="allposts.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="left-group">
+        <div class="logo">💡Idea Mesh</div>
+        <div class="profile-avatar" style="margin-left: 20px;"><div class="avatar-text" title="User Profile">U</div></div>
+    </div>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="3home.html">🏠 Home</a></li>
+        <li><a href="4posts.html">📄 All Posts</a></li>
+        <li><a href="#" id="menu-btn">☰</a></li>
+    </ul>
+</nav>
+<section class="controls">
+    <input type="search" id="searchBox" placeholder="🔍 Search posts..." required autofocus>
+    <select id="filterCategory">
+        <option value="All">All Categories</option>
+        <option value="General">General</option>
+                <option value="Coding">Coder</option>
+                <option value="Designer">UI Designer</option>
+                <option value="Music">Music</option>
+                <option value="Art">Art</option>
+                <option value="Data Analysis">Data Analysis</option>
+                <option value="DevOps">Developmet&Operations</option>
+                <option value="Networking">Networking</option>
+                <option value="Cyber Tech">Cyber Security</option>
+                <option value="AI">AI / ML</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="Testing">Testing</option>
+                <option value="Other">Other</option>
+    </select>
+</section>
+<section>
+    <div class="postsContainer" ></div>
+</section>
+<script>
+    // Avatar hover effect
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const avatar = document.querySelector('.avatar-text');
+    if (avatar) {
+        if (currentUser) {
+            const initial = currentUser.fullName.charAt(0).toUpperCase();
+            avatar.textContent = initial;
+            avatar.addEventListener('mouseover', function() {
+                this.textContent = currentUser.fullName;
+            });
+            avatar.addEventListener('mouseout', function() {
+                this.textContent = initial;
+            });
+        } else {
+            // Default if no user
+            avatar.textContent = 'U';
+            avatar.addEventListener('mouseover', function() {
+                this.textContent = 'User';
+            });
+            avatar.addEventListener('mouseout', function() {
+                this.textContent = 'U';
+            });
+        }
+    }
+</script>
+</body>
+<footer>
+    <p>&copy; 2026 Idea Mesh. All rights reserved. &#128242 8870959394</p>
+    </footer>
+</html>
